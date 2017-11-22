@@ -37,13 +37,8 @@ RUN yum install -y cmake \
                     wget \
                     openssl-devel libcurl-devel
 
-
-FROM r-base:3.3.3
-
-RUN yum install -y R-3.3.3 && \
+RUN yum install -y R && \
 	yum clean all
-
-FROM centos:latest
 
 RUN groupadd -g 600 shiny && useradd -u 600 -g 600 -r -m shiny
 
@@ -57,7 +52,7 @@ RUN R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
 RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.5.3.838-rh5-x86_64.rpm
 RUN yum install -y --nogpgcheck shiny-server-1.5.3.838-rh5-x86_64.rpm
 
-RUN mkdir -p /usr/share/doc/R-3.3.3/html/ 
+RUN mkdir -p /usr/share/doc/R/html/ 
 
 RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
@@ -84,7 +79,7 @@ RUN echo "[supervisord]" > /etc/supervisord.conf && \
     echo "[program:sshd]" >> /etc/supervisord.conf && \
     echo "command=/usr/sbin/sshd -D " >> /etc/supervisord.conf && \
     echo "[program:httpd]" >> /etc/supervisord.conf && \
-    echo "command=/usr/sbin/apachectl -D FOREGROUND" >> /etc/supervisord.conf
+    echo "command=/usr/sbin/nginx -D FOREGROUND" >> /etc/supervisord.conf
 
 # The above is already set up in the base image, centos-with-ssh:latest
 COPY shiny-server.conf /etc/shiny-server/
