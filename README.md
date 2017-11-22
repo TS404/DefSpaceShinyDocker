@@ -4,7 +4,7 @@ Builds a docker container for the DefSpaceShiny app
 To build
 
 ```
-    docker build -t TS404:defspaceshiny_v1 .
+    docker build -t TS404:defspaceshiny_v1 github.com/TS404/DefSpaceShinyDocker
 ```
 
 To Run
