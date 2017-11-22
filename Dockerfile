@@ -54,7 +54,7 @@ RUN R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
 RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.5.3.838-rh5-x86_64.rpm
 RUN yum install -y --nogpgcheck shiny-server-1.5.3.838-rh5-x86_64.rpm
 
-RUN mkdir -p /usr/share/doc/R-3.4.0/html/ 
+RUN mkdir -p /usr/share/doc/R-3.3.3/html/ 
 
 RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
