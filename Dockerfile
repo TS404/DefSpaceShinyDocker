@@ -38,9 +38,12 @@ RUN yum install -y cmake \
                     openssl-devel libcurl-devel
 
 
+FROM r-base:3.3.3
 
 RUN yum install -y R-3.3.3 && \
 	yum clean all
+
+FROM centos:latest
 
 RUN groupadd -g 600 shiny && useradd -u 600 -g 600 -r -m shiny
 
