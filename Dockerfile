@@ -45,15 +45,15 @@ RUN groupadd -g 600 shiny && useradd -u 600 -g 600 -r -m shiny
 
 # Note: /var/log/shiny-server needs to be mounted from the host at run-time, so creating it here
 # won't actually do anything.  But just in case the build process needs it...
-RUN mkdir -p ./var/log/shiny-server ./srv/shiny-server ./var/lib/shiny-server ./etc/shiny-server && \
-	chown -R shiny ./var/log/shiny-server
+RUN mkdir -p /var/log/shiny-server /srv/shiny-server /var/lib/shiny-server /etc/shiny-server && \
+	chown -R shiny /var/log/shiny-server
 
 RUN R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
 
 RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.5.3.838-rh5-x86_64.rpm
 RUN yum install -y --nogpgcheck shiny-server-1.5.3.838-rh5-x86_64.rpm
 
-RUN mkdir -p ./usr/share/doc/R-3.4.0/html/ 
+RUN mkdir -p /usr/share/doc/R-3.4.0/html/ 
 
 RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
@@ -63,8 +63,8 @@ RUN R -e 'devtools::install_github("TS404/DefSpace")'
 
 RUN wget https://github.com/TS404/DefSpaceShiny/archive/v1.0.0.zip && \
     unzip v1.0.0.zip && \
-    mkdir -p ./srv/shiny-server/DefSpace && \
-    cp DefSpaceShiny-1.0.0/*.R ./srv/shiny-server/defspace
+    mkdir -p /srv/shiny-server/DefSpace && \
+    cp DefSpaceShiny-1.0.0/*.R /srv/shiny-server/defspace
 
 # This is the port that the docker container expects to recieve communications on.
 # 
