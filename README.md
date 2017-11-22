@@ -1,5 +1,5 @@
 # DefSpaceShinyDocker
-Builds a docker container for the DefSpaceShiny app
+Builds a docker container for the [DefSpaceShiny](https://github.com/TS404/DefSpaceShiny) app
 
 To build
 
