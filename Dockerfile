@@ -39,7 +39,7 @@ RUN yum install -y cmake \
 
 
 
-RUN yum install -y R && \
+RUN yum install -y R-3.3.3 && \
 	yum clean all
 
 RUN groupadd -g 600 shiny && useradd -u 600 -g 600 -r -m shiny
