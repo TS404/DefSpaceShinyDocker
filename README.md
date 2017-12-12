@@ -4,12 +4,12 @@ Builds a docker container for the [DefSpaceShiny](https://github.com/TS404/DefSp
 To build
 
 ```
-    docker build -t TS404:defspaceshiny_v1 github.com/TS404/DefSpaceShinyDocker
+    docker build -t tst04:defspaceshiny_v1 github.com/TS404/DefSpaceShinyDocker
 ```
 
 To Run
 
 ```
-    docker run -p 3838:3838 TS404:defspaceshiny_v1
+    docker run -P -d ts404:defspaceshiny_v1
 ```
 
