@@ -79,7 +79,7 @@ RUN echo "[supervisord]" > /etc/supervisord.conf && \
     echo "[program:sshd]" >> /etc/supervisord.conf && \
     echo "command=/usr/sbin/sshd -D " >> /etc/supervisord.conf && \
     echo "[program:httpd]" >> /etc/supervisord.conf && \
-    echo "command=/usr/sbin/nginx -D FOREGROUND" >> /etc/supervisord.conf
+    echo "command=/usr/sbin/apachectl -D FOREGROUND" >> /etc/supervisord.conf
 
 # The above is already set up in the base image, centos-with-ssh:latest
 COPY shiny-server.conf /etc/shiny-server/
