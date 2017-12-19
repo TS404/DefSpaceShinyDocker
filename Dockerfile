@@ -57,12 +57,12 @@ RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
 RUN R -e "install.packages(c('devtools'), repos='https://cran.rstudio.com/')"
 
-RUN R -e 'devtools::install_github("TS404/DefSpace")'
+RUN R -e 'devtools::install_github("TS404/DefSpaceShiny")'
 
-RUN wget https://github.com/TS404/DefSpaceShiny/archive/v0.0.0.zip && \
-    unzip v0.0.0.zip && \
+RUN wget https://github.com/TS404/DefSpaceShiny/archive/v0.0.1.zip && \
+    unzip v0.0.1.zip && \
     mkdir -p /srv/shiny-server/defspace && \
-    cp DefSpaceShiny-0.0.0/*.R /srv/shiny-server/defspace/
+    cp DefSpaceShiny-0.0.1/*.R /srv/shiny-server/defspace/
 
 # This is the port that the docker container expects to recieve communications on.
 # 
