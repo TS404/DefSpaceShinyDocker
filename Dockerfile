@@ -64,6 +64,10 @@ RUN wget https://github.com/TS404/DefSpaceShiny/archive/v0.0.1.zip && \
     mkdir -p /srv/shiny-server/defspace && \
     cp DefSpaceShiny-0.0.1/*.R /srv/shiny-server/defspace/
 
+# Make empty favicon
+RUN mkdir -p /www &&\
+    touch /www/favicon.ico
+
 # This is the port that the docker container expects to recieve communications on.
 # 
 EXPOSE 3838
