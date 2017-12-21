@@ -85,4 +85,4 @@ COPY shiny-server.conf /etc/shiny-server/
 RUN echo "[program:shiny]" >> /etc/supervisord.conf && \
     echo "command=/usr/bin/bash -c '/usr/bin/shiny-server'" >> /etc/supervisord.conf
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/shiny-server"]
