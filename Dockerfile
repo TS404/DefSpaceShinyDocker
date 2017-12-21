@@ -72,17 +72,6 @@ RUN mkdir -p /www &&\
 # 
 EXPOSE 3838
 
-
-# Already done in the parent container.
-# If modifying this dockerfile to generate a standalone container,
-# please touch / create '/etc/supervisord.conf'
-RUN echo "[supervisord]" > /etc/supervisord.conf && \
-    echo "nodaemon=true" >> /etc/supervisord.conf
-
-# The above is already set up in the base image, centos-with-ssh:latest
 COPY shiny-server.conf /etc/shiny-server/
-
-RUN echo "[program:shiny]" >> /etc/supervisord.conf && \
-    echo "command=/usr/bin/bash -c '/usr/bin/shiny-server'" >> /etc/supervisord.conf
 
 CMD ["/usr/bin/shiny-server"]
