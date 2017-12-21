@@ -57,7 +57,16 @@ RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
 RUN R -e "install.packages(c('devtools'), repos='https://cran.rstudio.com/')"
 
-RUN R -e 'devtools::install_github("TS404/DefSpaceShiny")'
+RUN R -e "install.packages(c('rglwidget'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('rgl'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('ggplot2'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('Biostrings'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('DECIPHER'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('mclust'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('tidyr'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('rJava'), repos='https://cran.rstudio.com/')"
+
+# RUN R -e 'devtools::install_github("TS404/DefSpaceShiny")'
 
 RUN wget https://github.com/TS404/DefSpaceShiny/archive/v1.0.1.zip && \
     unzip v1.0.1.zip && \
